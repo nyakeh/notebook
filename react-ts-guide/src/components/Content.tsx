@@ -1,10 +1,11 @@
 import React from 'react';
+import './Content.css';
 import '../App.css';
 
 type ContentProps = {
 	title: string;
 	body: string;
-	code?: string;
+	code: string;
 	links?: ContentLink[];
 };
 
@@ -13,15 +14,17 @@ type ContentLink = {
 	url: string;
 };
 
-function Content(props: ContentProps) {
+function Content({ title, body, code, links }: ContentProps) {
 	return (
-		<div className="App-content">
-			<h2>{props.title}</h2>
-			<p>{props.body}</p>
-			<code>{props.code}</code>
-			{props.links?.map((link) => (
+		<div className="Content">
+			<h2>{title}</h2>
+			<p>{body}</p>
+			<div className="Content-code">
+				<code className="language-javascript">{code}</code>
+			</div>
+			{links?.map((link) => (
 				<p>
-					{link.label}:
+					{link.label}&nbsp;:&nbsp;
 					<a href={link.url} className="App-link" target="_blank">
 						{link.url}
 					</a>
