@@ -1,11 +1,10 @@
-import React from 'react';
-import './Content.css';
-import '../App.css';
+import "./Content.css";
+import "../App.css";
 
 type ContentProps = {
 	title: string;
 	body: string;
-	code: string;
+	codeSnippets: string[];
 	links?: ContentLink[];
 };
 
@@ -14,13 +13,15 @@ type ContentLink = {
 	url: string;
 };
 
-function Content({ title, body, code, links }: ContentProps) {
+function Content({ title, body, codeSnippets, links }: ContentProps) {
 	return (
 		<div className="Content">
 			<h2>{title}</h2>
 			<p>{body}</p>
 			<div className="Content-code">
-				<code className="language-javascript">{code}</code>
+				{codeSnippets.map((code) => (
+					<code className="language-javascript">{code}</code>
+				))}
 			</div>
 			{links?.map((link) => (
 				<p>

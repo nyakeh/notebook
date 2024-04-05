@@ -12,10 +12,11 @@
   background-color: black;
   padding: 1rem;
   border-radius: 5px;
-  overflow-x: auto; /* Enable horizontal scrollbar if needed */
+  overflow-x: auto;
 }
 
 code {
   font-family: Consolas, monospace;
-  color:white
+  color:white;
+  display: block;
 }
